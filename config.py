@@ -7,7 +7,7 @@ class Config(object):
 
     BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'QALaUB31CM4CbU9u3Y35kAltKZl7ZNVJQ1o9VAqqaH8gEoAkoWwonyeZUXkdv/Tpj11QcMKuzW2f+AStCfGJEg=='
     BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'DefaultEndpointsProtocol=https;AccountName=images11;AccountKey=QALaUB31CM4CbU9u3Y35kAltKZl7ZNVJQ1o9VAqqaH8gEoAkoWwonyeZUXkdv/Tpj11QcMKuzW2f+AStCfGJEg==;EndpointSuffix=core.windows.net'
-    BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images11'
+    BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images'
 
     SQL_SERVER = os.environ.get('SQL_SERVER') or 'sv-tan.database.windows.net'
     SQL_DATABASE = os.environ.get('SQL_DATABASE') or 'cms'
