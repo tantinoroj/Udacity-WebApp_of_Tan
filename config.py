@@ -3,13 +3,13 @@ import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'secret-key'
+    SECRET_KEY = os.environ.get('SECRET_KEY') or '77e690d8-25c3-4a47-a7a4-37d9be022354'
 
-    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'QALaUB31CM4CbU9u3Y35kAltKZl7ZNVJQ1o9VAqqaH8gEoAkoWwonyeZUXkdv/Tpj11QcMKuzW2f+AStCfGJEg=='
-    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'DefaultEndpointsProtocol=https;AccountName=images11;AccountKey=QALaUB31CM4CbU9u3Y35kAltKZl7ZNVJQ1o9VAqqaH8gEoAkoWwonyeZUXkdv/Tpj11QcMKuzW2f+AStCfGJEg==;EndpointSuffix=core.windows.net'
+    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'cmstan'
+    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'c83AHex49cELwqHuJ5mW/rVXf0tFi/lh2BgEjhNpwEKIV5E08zz99CWx2M5eHRTO2ZH2Vhyr8Nyr+AStna9FbA=='
     BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images'
 
-    SQL_SERVER = os.environ.get('SQL_SERVER') or 'sv-tan.database.windows.net'
+    SQL_SERVER = os.environ.get('SQL_SERVER') or 'sv-cms.database.windows.net'
     SQL_DATABASE = os.environ.get('SQL_DATABASE') or 'cms'
     SQL_USER_NAME = os.environ.get('SQL_USER_NAME') or 'sqladmin'
     SQL_PASSWORD = os.environ.get('SQL_PASSWORD') or '!pwd1234'
