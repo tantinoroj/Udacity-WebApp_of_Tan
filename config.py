@@ -5,14 +5,14 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'secret-key'
 
-    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'ENTER_STORAGE_ACCOUNT_NAME'
-    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'ENTER_BLOB_STORAGE_KEY'
-    BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'ENTER_IMAGES_CONTAINER_NAME'
+    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'QALaUB31CM4CbU9u3Y35kAltKZl7ZNVJQ1o9VAqqaH8gEoAkoWwonyeZUXkdv/Tpj11QcMKuzW2f+AStCfGJEg=='
+    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'DefaultEndpointsProtocol=https;AccountName=images11;AccountKey=QALaUB31CM4CbU9u3Y35kAltKZl7ZNVJQ1o9VAqqaH8gEoAkoWwonyeZUXkdv/Tpj11QcMKuzW2f+AStCfGJEg==;EndpointSuffix=core.windows.net'
+    BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images11'
 
-    SQL_SERVER = os.environ.get('SQL_SERVER') or 'ENTER_SQL_SERVER_NAME.database.windows.net'
-    SQL_DATABASE = os.environ.get('SQL_DATABASE') or 'ENTER_SQL_DB_NAME'
-    SQL_USER_NAME = os.environ.get('SQL_USER_NAME') or 'ENTER_SQL_SERVER_USERNAME'
-    SQL_PASSWORD = os.environ.get('SQL_PASSWORD') or 'ENTER_SQL_SERVER_PASSWORD'
+    SQL_SERVER = os.environ.get('SQL_SERVER') or 'sv-tan.database.windows.net'
+    SQL_DATABASE = os.environ.get('SQL_DATABASE') or 'cms'
+    SQL_USER_NAME = os.environ.get('SQL_USER_NAME') or 'sqladmin'
+    SQL_PASSWORD = os.environ.get('SQL_PASSWORD') or '!pwd1234'
     # Below URI may need some adjustments for driver version, based on your OS, if running locally
     SQLALCHEMY_DATABASE_URI = 'mssql+pyodbc://' + SQL_USER_NAME + '@' + SQL_SERVER + ':' + SQL_PASSWORD + '@' + SQL_SERVER + ':1433/' + SQL_DATABASE  + '?driver=ODBC+Driver+17+for+SQL+Server'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -27,10 +27,10 @@ class Config(object):
     # if not CLIENT_SECRET:
     #     raise ValueError("Need to define CLIENT_SECRET environment variable")
 
-    AUTHORITY = "https://login.microsoftonline.com/common"  # For multi-tenant app, else put tenant name
-    # AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
+    # AUTHORITY = "https://login.microsoftonline.com/common"  # For multi-tenant app, else put tenant name
+    AUTHORITY = "https://login.microsoftonline.com/ff873fe8-6631-416d-9262-bdbd56117dae"
 
-    CLIENT_ID = "ENTER_CLIENT_ID_HERE"
+    CLIENT_ID = "ef2a7bea-3646-400e-bad3-afb30aa641fc"
 
     REDIRECT_PATH = "/getAToken"  # Used to form an absolute URL; must match to app's redirect_uri set in AAD
 
