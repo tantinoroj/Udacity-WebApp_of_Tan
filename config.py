@@ -1,4 +1,4 @@
-import os
+retimport os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -28,9 +28,9 @@ class Config(object):
     #     raise ValueError("Need to define CLIENT_SECRET environment variable")
 
     # AUTHORITY = "https://login.microsoftonline.com/common"  # For multi-tenant app, else put tenant name
-    AUTHORITY = "https://login.microsoftonline.com/ff873fe8-6631-416d-9262-bdbd56117dae"
+    AUTHORITY = "https://login.microsoftonline.com/f958e84a-92b8-439f-a62d-4f45996b6d07"
 
-    CLIENT_ID = "ef2a7bea-3646-400e-bad3-afb30aa641fc"
+    CLIENT_ID = "cddd0e62-9bf0-416b-b238-014a80a325d9"
 
     REDIRECT_PATH = "/getAToken"  # Used to form an absolute URL; must match to app's redirect_uri set in AAD
 
