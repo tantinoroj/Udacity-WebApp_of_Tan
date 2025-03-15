@@ -5,14 +5,14 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config(object):
     SECRET_KEY = 'fcfd7e69-c18c-41fa-ab81-db9b67a201d4'
 
-    BLOB_ACCOUNT = 'cmstan'
-    BLOB_STORAGE_KEY = 'lw8VBSdCpcocNOR0RTAmyCpQ8M3VXq9hLhQQdewNkBK1TVNXIGn0TODvL9Bug8zXR9nznzQIj9ro+AStr12VCw=='
-    BLOB_CONTAINER = 'images'
+    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'cmstan'
+    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'lw8VBSdCpcocNOR0RTAmyCpQ8M3VXq9hLhQQdewNkBK1TVNXIGn0TODvL9Bug8zXR9nznzQIj9ro+AStr12VCw=='
+    BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images'
 
-    SQL_SERVER = 'cmstan.database.windows.net'
-    SQL_DATABASE = 'cms'
-    SQL_USER_NAME = 'sqladmin'
-    SQL_PASSWORD = '!pwd1234'
+    SQL_SERVER = os.environ.get('SQL_SERVER') or 'cmstan.database.windows.net'
+    SQL_DATABASE = os.environ.get('SQL_DATABASE') or 'cms'
+    SQL_USER_NAME = os.environ.get('SQL_USER_NAME') or 'sqladmin'
+    SQL_PASSWORD = os.environ.get('SQL_PASSWORD') or '!pwd1234'
     # Below URI may need some adjustments for driver version, based on your OS, if running locally
     SQLALCHEMY_DATABASE_URI = 'mssql+pyodbc://' + SQL_USER_NAME + '@' + SQL_SERVER + ':' + SQL_PASSWORD + '@' + SQL_SERVER + ':1433/' + SQL_DATABASE  + '?driver=ODBC+Driver+17+for+SQL+Server'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
