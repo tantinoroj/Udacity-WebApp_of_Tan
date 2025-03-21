@@ -11,6 +11,7 @@ from flask_session import Session
 
 app = Flask(__name__)
 app.config.from_object(Config)
+<<<<<<< HEAD
 
 # Set the logging level
 app.logger.setLevel(logging.WARNING)
@@ -25,6 +26,13 @@ handler.setFormatter(formatter)
 
 # Add the handler to the app's logger
 app.logger.addHandler(handler)
+=======
+LOG = create_logger(app)
+LOG.setLevel(logging.INFO)
+streamHandler = logging.StreamHandler()
+streamHandler.setLevel(logging.INFO)
+LOG.addHandler(streamHandler)
+>>>>>>> e3bcf81627397178014b7d908951867357bca409
 
 Session(app)
 db = SQLAlchemy(app)
