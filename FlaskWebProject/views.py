@@ -10,6 +10,7 @@ from FlaskWebProject import app, db
 from FlaskWebProject.forms import LoginForm, PostForm
 from flask_login import current_user, login_user, logout_user, login_required
 from FlaskWebProject.models import User, Post
+from FlaskWebProject import LOG
 import msal
 import uuid
 
