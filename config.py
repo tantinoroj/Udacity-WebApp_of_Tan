@@ -8,9 +8,9 @@ logger = logging.getLogger(__name__)
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or '26dd918b-e70d-4470-b328-137159187428'
 
-    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'image18'
-    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'IHfXWkL5NAd4YbQvDX1g23D0bqqbI3lnw4ILQIIUug3Fmva1T1W3GMB1XlBU8cshpinRrraBtPu2+ASt2Iy8WQ=='
-    BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images'
+    # BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'image18'
+    # BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'IHfXWkL5NAd4YbQvDX1g23D0bqqbI3lnw4ILQIIUug3Fmva1T1W3GMB1XlBU8cshpinRrraBtPu2+ASt2Iy8WQ=='
+    # BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images'
     
     BLOB_CONNECTION_STRING = os.environ.get('BLOB_CONNECTION_STRING') or 'DefaultEndpointsProtocol=https;AccountName=image18;AccountKey=IHfXWkL5NAd4YbQvDX1g23D0bqqbI3lnw4ILQIIUug3Fmva1T1W3GMB1XlBU8cshpinRrraBtPu2+ASt2Iy8WQ==;EndpointSuffix=core.windows.net'
     if not BLOB_CONNECTION_STRING:
@@ -38,7 +38,7 @@ class Config(object):
     #     raise ValueError("Need to define CLIENT_SECRET environment variable")
 
     # AUTHORITY = "https://login.microsoftonline.com/common"  # For multi-tenant app, else put tenant name
-    AUTHORITY = "https://login.microsoftonline.com/ff873fe8-6631-416d-9262-bdbd56117dae"
+    AUTHORITY = "https://login.microsoftonline.com/os.environ.get('Tenant_ID')"
 
     CLIENT_ID = os.environ.get('CLIENT_ID') or 'cd8e5735-7129-4065-9538-2a3499e29835'
 
