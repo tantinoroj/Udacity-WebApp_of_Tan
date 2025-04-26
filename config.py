@@ -8,9 +8,9 @@ logger = logging.getLogger(__name__)
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'f6963a86-a8bc-4b35-b712-d63f674043e2'
 
-    # BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'image26'
-    # BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or '58BsQsutgcvQWTwvNE65Milz6q6VZefHKr7tj+Ql+J7CCxHx8HPHxPdmJGjUwG3aj20ymYKcDuxU+AStpqAxnw=='
-    # BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images'
+    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'image26'
+    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or '58BsQsutgcvQWTwvNE65Milz6q6VZefHKr7tj+Ql+J7CCxHx8HPHxPdmJGjUwG3aj20ymYKcDuxU+AStpqAxnw=='
+    BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images'
     
     BLOB_CONNECTION_STRING = os.environ.get('BLOB_CONNECTION_STRING') or 'DefaultEndpointsProtocol=https;AccountName=image18;AccountKey=IHfXWkL5NAd4YbQvDX1g23D0bqqbI3lnw4ILQIIUug3Fmva1T1W3GMB1XlBU8cshpinRrraBtPu2+ASt2Iy8WQ==;EndpointSuffix=core.windows.net'
     if not BLOB_CONNECTION_STRING:
