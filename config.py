@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'f6963a86-a8bc-4b35-b712-d63f674043e2'
 
-    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'image26'
+    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'image29'
     BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or '58BsQsutgcvQWTwvNE65Milz6q6VZefHKr7tj+Ql+J7CCxHx8HPHxPdmJGjUwG3aj20ymYKcDuxU+AStpqAxnw=='
     BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images'
     
@@ -18,10 +18,10 @@ class Config(object):
     else:
         logger.info("BLOB_CONNECTION_STRING is set")
 
-    SQL_SERVER = os.environ.get('SQL_SERVER') or 'cms26.database.windows.net'
-    SQL_DATABASE = os.environ.get('SQL_DATABASE') or 'cms26'
+    SQL_SERVER = os.environ.get('SQL_SERVER') or 'cmstan.database.windows.net'
+    SQL_DATABASE = os.environ.get('SQL_DATABASE') or 'cms'
     SQL_USER_NAME = os.environ.get('SQL_USER_NAME') or 'sqladmin'
-    SQL_PASSWORD = os.environ.get('SQL_PASSWORD') or '@pass1234'
+    SQL_PASSWORD = os.environ.get('SQL_PASSWORD') or '!pwd1234'
     
     # Below URI may need some adjustments for driver version, based on your OS, if running locally
     SQLALCHEMY_DATABASE_URI = 'mssql+pyodbc://' + SQL_USER_NAME + '@' + SQL_SERVER + ':' + SQL_PASSWORD + '@' + SQL_SERVER + ':1433/' + SQL_DATABASE  + '?driver=ODBC+Driver+17+for+SQL+Server'
