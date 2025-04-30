@@ -6,19 +6,19 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY') or '26dd918b-e70d-4470-b328-137159187428'
+    SECRET_KEY = os.environ.get('SECRET_KEY') or '2971343e-c5d9-4bce-a664-56e7d292b42e'
 
-    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'image29'
-    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'aDVIopS/1ek4soxBeNZDQnSFalDXerGRJcuXzW0g35wdoPKQBK1dvoU1Qkol3ZNj5uQDf+B3tMih+AStfsBvYA=='
+    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'image30'
+    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or '6g1dmgSmM4xJuujBArXCDZnGUe4kmxavKi2qyCc8qJ3RseIHhZRBLg/9xcclMiLY+oustPrFyXE/+AStKi8CwQ=='
     BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'image'
     
-    BLOB_CONNECTION_STRING = os.environ.get('BLOB_CONNECTION_STRING') or 'DefaultEndpointsProtocol=https;AccountName=image29;AccountKey=aDVIopS/1ek4soxBeNZDQnSFalDXerGRJcuXzW0g35wdoPKQBK1dvoU1Qkol3ZNj5uQDf+B3tMih+AStfsBvYA==;EndpointSuffix=core.windows.net'
+    BLOB_CONNECTION_STRING = os.environ.get('BLOB_CONNECTION_STRING') or 'DefaultEndpointsProtocol=https;AccountName=image30;AccountKey=6g1dmgSmM4xJuujBArXCDZnGUe4kmxavKi2qyCc8qJ3RseIHhZRBLg/9xcclMiLY+oustPrFyXE/+AStKi8CwQ==;EndpointSuffix=core.windows.net'
     if not BLOB_CONNECTION_STRING:
         logger.error("BLOB_CONNECTION_STRING is not set")
     else:
         logger.info("BLOB_CONNECTION_STRING is set")
 
-    SQL_SERVER = os.environ.get('SQL_SERVER') or 'cmstan.database.windows.net'
+    SQL_SERVER = os.environ.get('SQL_SERVER') or 'cmstan2.database.windows.net'
     SQL_DATABASE = os.environ.get('SQL_DATABASE') or 'cms'
     SQL_USER_NAME = os.environ.get('SQL_USER_NAME') or 'sqladmin'
     SQL_PASSWORD = os.environ.get('SQL_PASSWORD') or '!pwd1234'
