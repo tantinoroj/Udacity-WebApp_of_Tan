@@ -26,11 +26,11 @@ handler.setFormatter(formatter)
 # Add the handler to the app's logger
 app.logger.addHandler(handler)
 
-LOG = create_logger(app)
-LOG.setLevel(logging.INFO)
+# LOG = create_logger(app)
+# LOG.setLevel(logging.INFO)
 streamHandler = logging.StreamHandler()
 streamHandler.setLevel(logging.INFO)
-LOG.addHandler(streamHandler)
+# LOG.addHandler(streamHandler)
 
 
 Session(app)
