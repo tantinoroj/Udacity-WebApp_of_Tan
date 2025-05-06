@@ -1,7 +1,7 @@
 """
 Routes and views for the flask application.
 """
-
+import logging
 from datetime import datetime
 from flask import render_template, flash, redirect, request, session, url_for
 from urllib.parse import urlparse
@@ -33,6 +33,7 @@ def home():
 def new_post():
     form = PostForm(request.form)
     if form.validate_on_submit():
+        logger.info(f"User {current_user.username} creating new post")
         post = Post()
         post.save_changes(form, request.files['image_path'], current_user.id, new=True)
         # LOG Informational
@@ -52,6 +53,7 @@ def post(id):
     post = Post.query.get(int(id))
     form = PostForm(formdata=request.form, obj=post)
     if form.validate_on_submit():
+        logger.info(f"User {current_user.username} accessing post {id}")
         post.save_changes(form, request.files['image_path'], current_user.id)
         # LOG Informational
         # LOG.info('INFO: Post ' + str(id) + ' edited by user: ' + str(current_user.id))
@@ -68,16 +70,19 @@ def login():
     if current_user.is_authenticated:
         #LOG
         # LOG.info('INFO: User ' + str(current_user.id) + ' is authenticated...')
+        logger.info(f"Already authenticated user {current_user.username} accessing login page")
         return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
+            logger.warning(f"Failed login attempt for username: {form.username.data}")
             flash('Invalid username or password')
             #LOG
             # LOG.warning('WARNING: Login Unsucessful....Invalid username or password for user:' + str(user))
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
+        logger.info(f"Successful login for user: {user.username}")
         next_page = request.args.get('next')
         if not next_page or urlparse(next_page).netloc != '':
             next_page = url_for('home')
@@ -89,21 +94,22 @@ def login():
 @app.route(Config.REDIRECT_PATH)  # Its absolute URL must match your app's redirect_uri set in AAD
 def authorized():
     if request.args.get('state') != session.get("state"):
+        logger.warning("State mismatch in authorized callback")
         return redirect(url_for("home"))  # No-OP. Goes back to Index page
     if "error" in request.args:  # Authentication/Authorization failure
         #LOG
         # LOG.error('ERROR: Authentication/Authorization failure...')
+        logger.error(f"Authorization error: {request.args.get('error')}")
         return render_template("auth_error.html", result=request.args)
     if request.args.get('code'):
         cache = _load_cache()
         
         result = _build_msal_app(cache=cache).acquire_token_by_authorization_code(
-     request.args['code'],
-     scopes=Config.SCOPE,
-     redirect_uri=url_for('authorized', _external=True, _scheme='https'))
+         request.args['code'],
+         scopes=Config.SCOPE,
+         redirect_uri=url_for('authorized', _external=True, _scheme='https'))
         if "error" in result:
-            #LOG Error
-            # LOG.error('ERROR: Did not acquire a token for OAUTH...')
+            logger.error(f"Token acquisition error: {result.get('error')}")
             return render_template("auth_error.html", result=result)
         session["user"] = result.get("id_token_claims")
         # Note: In a real app, we'd use the 'name' property from session["user"] below
