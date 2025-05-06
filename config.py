@@ -9,10 +9,6 @@ class Config(object):
     BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') 
     BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') 
     BLOB_CONNECTION_STRING = os.environ.get('BLOB_CONNECTION_STRING') 
-    if not BLOB_CONNECTION_STRING:
-        logger.error("BLOB_CONNECTION_STRING is not set")
-    else:
-        logger.info("BLOB_CONNECTION_STRING is set")
 
     SQL_SERVER = os.environ.get('SQL_SERVER') 
     SQL_DATABASE = os.environ.get('SQL_DATABASE')
