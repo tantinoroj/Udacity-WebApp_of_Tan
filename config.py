@@ -27,7 +27,7 @@ class Config(object):
     ### Info for MS Authentication ###
     ### As adapted from: https://github.com/Azure-Samples/ms-identity-python-webapp ###
     CLIENT_SECRET  = '5038Q~N~2KCnaRV3gov~STzRepw6hcINpKXh4b9z'
-    AUTHORITY = 'https://login.microsoftonline.com/ff873fe8-6631-416d-9262-bdbd56117dae'
+    AUTHORITY = "https://login.microsoftonline.com/ff873fe8-6631-416d-9262-bdbd56117dae"
     CLIENT_ID = '416d6f76-eb16-48ac-a864-59b8326309a1'
 
     REDIRECT_PATH = "/getAToken"  # Used to form an absolute URL; must match to app's redirect_uri set in AAD
